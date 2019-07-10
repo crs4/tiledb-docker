@@ -1,4 +1,4 @@
-# Tiledb Docker image with Python API and HDFS
+# TileDB Docker image with Python API and HDFS
 
 How to build:
 ```
