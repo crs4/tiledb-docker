@@ -4,6 +4,7 @@ services:
 
   namenode:
     image: crs4/namenode:3.2.0
+    container_name: namenode
     ports:
       - "8020:8020"
       - "9870:9870"
@@ -11,6 +12,7 @@ services:
 
   datanode:
     image: crs4/datanode:3.2.0
+    container_name: datanode
     ports:
       - "9864:9864"
       - "9865:9865"
@@ -21,5 +23,6 @@ services:
 
   client:
     image: crs4/tiledb
+    container_name: tiledb
     environment:
       - NAMENODE_HOSTNAME=namenode
