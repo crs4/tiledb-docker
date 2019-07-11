@@ -3,7 +3,7 @@ services: docker
 sudo: required
 
 install:
-  - docker build -t crs4/tiledb -f docker/Dockerfile docker
+  - docker build -t crs4/tiledb -f docker/Dockerfile docker/
 
 script:
   - docker-compose up -d
@@ -13,3 +13,11 @@ script:
   - docker cp quickstart_dense.py tiledb:/
   - docker exec tiledb bash -l -c "python3 quickstart_dense.py"
   - docker exec namenode hdfs dfs -ls /quickstart_dense
+
+
+deploy:
+  - provider: script
+    script: bash push.sh
+    on:
+      repo: crs4/tiledb-docker
+      branch: master
