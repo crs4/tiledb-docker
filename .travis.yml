@@ -8,16 +8,14 @@ install:
 script:
   - docker-compose up -d
   - docker exec datanode bash -c 'until datanode_cid; do sleep 0.1; done'
-  - wget https://raw.githubusercontent.com/TileDB-Inc/TileDB-Py/0.4.0/examples/quickstart_dense.py
-  - sed -i "s|array_name = \"quickstart_dense\"|array_name = \"hdfs://namenode:8020/quickstart_dense\"|" quickstart_dense.py
-  - docker cp quickstart_dense.py tiledb:/
+  - docker cp .travis/quickstart_dense.py tiledb:/
   - docker exec tiledb bash -l -c "python3 quickstart_dense.py"
   - docker exec namenode hdfs dfs -ls /quickstart_dense
 
 
 deploy:
   - provider: script
-    script: bash push.sh
+    script: bash .travis/push.sh
     on:
       repo: crs4/tiledb-docker
       branch: master
