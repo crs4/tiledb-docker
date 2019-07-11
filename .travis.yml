@@ -2,8 +2,11 @@ language: bash
 services: docker
 sudo: required
 
+env:
+  - IMAGE: tdmproject/tiledb
+
 install:
-  - docker build -t crs4/tiledb -f docker/Dockerfile docker/
+  - docker build -t $IMAGE -f docker/Dockerfile docker/
 
 script:
   - docker-compose up -d

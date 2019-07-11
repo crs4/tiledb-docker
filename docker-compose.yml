@@ -22,7 +22,7 @@ services:
       - NAMENODE_HOSTNAME=namenode
 
   client:
-    image: crs4/tiledb
+    image: $IMAGE
     container_name: tiledb
     environment:
       - NAMENODE_HOSTNAME=namenode
