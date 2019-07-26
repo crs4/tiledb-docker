@@ -6,7 +6,7 @@ env:
   - IMAGE: tdmproject/tiledb
 
 install:
-  - docker build -t $IMAGE -f docker/Dockerfile docker/
+  - ./build.sh
 
 script:
   - docker-compose up -d
