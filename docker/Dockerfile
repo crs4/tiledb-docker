@@ -10,3 +10,4 @@ RUN apt update && \
     chmod +x /custom-entrypoint.sh
 
 ENTRYPOINT ["/custom-entrypoint.sh"]
+CMD ["tail", "-f", "/dev/null"]
