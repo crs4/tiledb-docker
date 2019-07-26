@@ -2,19 +2,19 @@
 
 How to build:
 ```
-cd docker
-docker build -t crs4/tiledb .
+./build.sh
+
 ```
 
 How to use:
 ```
-docker run -it --rm crs4/tiledb bash -l
+docker run -it --rm tdmproject/tiledb bash -l
 ```
 
 How to use with docker-compose:
 ```
 docker-compose up -d
 #hdfs address: hdfs://namenode:8020
-docker exec -it crs4/tiledb bash -l
+docker exec -it tdmproject/tiledb bash -l
 ```
 
