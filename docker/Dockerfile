@@ -3,6 +3,7 @@ FROM $BASE_IMAGE
 ARG HADOOP_CLASSPATH
 ENV CLASSPATH $HADOOP_CLASSPATH
 ENV HADOOP_HOME /opt/hadoop
-RUN apt update && \
-    apt install -y  python3-pip && \
-    pip3 install tiledb
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install --no-install-recommends -y python3-pip && \
+    pip3 install tiledb==0.7.0
